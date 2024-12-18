@@ -36,7 +36,7 @@ void redukcja(Matrix *mat, Matrix *b, double dziel, int i, int f) {
 int eliminate(Matrix *mat, Matrix *b){
     	int i;
 	for (i=0; i<mat->r; i++) {
-		find_max(mat, i);
+		find_max(mat, b, i);
 		int k;
 		for(k=1; k<mat->r-i; k++) {
 			redukcja(mat, b, mat->data[i+k][i] / mat->data[i][i], i, i+k);
