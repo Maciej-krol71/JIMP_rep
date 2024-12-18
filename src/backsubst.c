@@ -16,9 +16,14 @@ int backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 				tmp -= mat->data[i][m] * x->data[m][0];	
 			}
 		}
+		if(mat->data[i][i]==0)
+			return 1;
 		tmp *= (1/mat->data[i][i]);
 		x->data[i][0] = tmp;
 	}
+
+	if(mat->r != mat->c)
+		return 2;
 
 	return 0;	
 				
