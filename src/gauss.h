@@ -9,7 +9,7 @@
  */
 
 void switchrows(Matrix * mat, int j, int l);
-void find_max(Matrix *mat, int j);
+void find_max(Matrix *mat, Matrix *b, int j);
 void redukcja(Matrix *mat, Matrix *b, double dziel, int i, int f);
 int eliminate(Matrix *mat, Matrix *b);
 
