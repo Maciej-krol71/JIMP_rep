@@ -4,19 +4,24 @@
  * Zwraca 1 - błąd dzielenia przez 0 (element na diagonali = 0)
  * Zwraca 2 - błąd nieprawidłowych rozmiarów macierzy
  */
-int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
-				/**
-				 * Tutaj należy umieścić właściwą implemntację.
-				 */
+int backsubst(Matrix *x, Matrix *mat, Matrix *b) {
+	for (int i=0; i<x->r; i++) {
+		x->data[i][0] = 1;
+	}
+		
+	for(int i=mat->r-1; i>=0; i--){
+		double tmp = b->data[i][0];
+		for(int m=mat->c-1; m>=0; m--) {
+			if (m != i) {
+				tmp -= mat->data[i][m] * x->data[m][0];	
+			}
+		}
+		tmp *= (1/mat->data[i][i]);
+		x->data[i][0] = tmp;
+	}
 
-				/* To ponizej jest przepisaniem b do x. Nalezy to poprawic! */
-
-				int i;
-				for (i =0; i < x->r; i++) {
-								x->data[i][0] = b->data[i][0];
-				}
-
-				return 0;
+	return 0;	
+				
 }
 
 
