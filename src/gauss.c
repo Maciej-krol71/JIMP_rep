@@ -6,22 +6,27 @@
  */
 
 void switchrows(Matrix *mat, int j, int l) {
+	
 	double * tmp = mat->data[j];
+	
 	mat->data[j] = mat->data[l];
 	mat->data[l] = tmp;
 }
 
 void find_max(Matrix *mat, Matrix *b, int j) {
 	int i;
-	int l = j;
+	
+		int l = j;
         double max = mat->data[j][j];
         for (i=j; i<mat->r; i++) {
 		if(mat->data[i][j] > max) {
-			max = mat->data[i][j];
-			l = i;
+				max = mat->data[i][j];
+				l = i;
 		}
 	}
+	
 	switchrows(mat, j, l);
+	
 	switchrows(b, j, l);
 }
 
