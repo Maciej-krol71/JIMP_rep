@@ -14,8 +14,7 @@ void switchrows(Matrix *mat, int j, int l) {
 }
 
 void find_max(Matrix *mat, Matrix *b, int j) {
-	int i;
-	
+		int i;
 		int l = j;
         double max = mat->data[j][j];
         for (i=j; i<mat->r; i++) {
@@ -24,10 +23,8 @@ void find_max(Matrix *mat, Matrix *b, int j) {
 				l = i;
 		}
 	}
-	
-	switchrows(mat, j, l);
-	
-	switchrows(b, j, l);
+		switchrows(mat, j, l);
+		switchrows(b, j, l);
 }
 
 void redukcja(Matrix *mat, Matrix *b, double dziel, int i, int f) {
