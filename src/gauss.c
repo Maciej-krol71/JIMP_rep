@@ -41,7 +41,7 @@ int eliminate(Matrix *mat, Matrix *b){
 		find_max(mat, b, i);
 		int k;
 		for(k=1; k<mat->r-i; k++) {
-			if(mat->data[i][i]==0) return 1; //dzielenie przez 0
+			if(mat->data[i][i]==0) return 1;
 			redukcja(mat, b, mat->data[i+k][i] / mat->data[i][i], i, i+k);
 		}
 	}
