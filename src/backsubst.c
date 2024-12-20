@@ -22,7 +22,7 @@ int backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 		x->data[i][0] = tmp;
 	}
 
-	if(mat->r != mat->c)
+	if(mat->r != mat->c || mat->r != b->r)
 		return 2;
 
 	return 0;	
